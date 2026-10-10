@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         GISeis 测量质检助手 V1.6.4
 // @namespace    https://giseis.com/
-// @version      1.6.4
+// @version      1.6.5
 // @description  编号与照片/视频检查、自动通过或不通过并填写原因、手动开始/停止
 // @match        *://giseis.com/Fun/OpenCheck_Chk_Sur*
 // @match        *://*.giseis.com/Fun/OpenCheck_Chk_Sur*
+// @match        *://giseis.com/html/M_CHK/Q_Check_Survey.html*
+// @match        *://*.giseis.com/html/M_CHK/Q_Check_Survey.html*
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
@@ -12,7 +14,7 @@
 (function () {
     'use strict';
 
-    const VERSION = '1.6.4';
+    const VERSION = '1.6.5';
     const PANEL_ID = 'giseis-qc-helper';
     const FLOAT_ID = 'giseis-qc-float';
     const MISSING_MEDIA_REASON = '缺少照片或视频';

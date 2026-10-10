@@ -1,7 +1,7 @@
 # GISeis 测量质检助手 V1.6.4 技术文档
 
-> 文档版本：V1.1\
-> 对应脚本版本：GISeis 测量质检助手 V1.6.4\
+> 文档版本：V1.2\
+> 对应脚本版本：GISeis 测量质检助手 V1.6.5\
 > 运行环境：Chrome / Edge + Tampermonkey + GISeis Web 页面\
 > 文档用途：记录当前实现方案、关键参数、审核流程、安全策略、测试方法以及后续待实现功能。
 
@@ -46,15 +46,23 @@ V1.6.4 将重复性的编号核对、附件存在性检查、原因填写和批�
 V1.6.4 采用 Tampermonkey UserScript 方式运行，通过 `@match` 限制脚本在
 GISeis 指定页面执行。
 
+V1.6.5 补充实际测量质检入口 `/html/M_CHK/Q_Check_Survey.html` 的匹配规则，
+同时保留旧入口 `/Fun/OpenCheck_Chk_Sur`，支持独立打开及 iframe 加载。
+安装名称、namespace 和发布文件名沿用 V1.6.4，以便已有用户覆盖更新；
+油猴管理面板的版本列和助手面板显示 V1.6.5。审核逻辑及 6 秒间隔保持现有设置。
+浏览器仍需授予 Tampermonkey 用户脚本执行权限及 `www.giseis.com` 网站访问权限。
+
 当前脚本元数据主要包括：
 
 ``` javascript
 // ==UserScript==
 // @name         GISeis 测量质检助手 V1.6.4
 // @namespace    https://giseis.com/
-// @version      1.6.4
+// @version      1.6.5
 // @match        *://giseis.com/Fun/OpenCheck_Chk_Sur*
 // @match        *://*.giseis.com/Fun/OpenCheck_Chk_Sur*
+// @match        *://giseis.com/html/M_CHK/Q_Check_Survey.html*
+// @match        *://*.giseis.com/html/M_CHK/Q_Check_Survey.html*
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
